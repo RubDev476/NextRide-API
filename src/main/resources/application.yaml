@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: next-ride
+  datasource:
+    url: jdbc:mysql://localhost:3306/re-cars
+    username: root
+    password: 123456
