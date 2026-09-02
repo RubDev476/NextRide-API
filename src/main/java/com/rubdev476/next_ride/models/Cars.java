@@ -43,7 +43,7 @@ public class Cars {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "color_id", referencedColumnName = "colorId")
-    private Colors color;
+    private Colors colors;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "brand_id", referencedColumnName = "brandId")
