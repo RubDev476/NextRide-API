@@ -8,7 +8,7 @@ import lombok.Data;
 public class ColorFinishes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long finishId;
+    private Integer finishId;
 
     private String description;
 }

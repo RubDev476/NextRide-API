@@ -10,7 +10,7 @@ public class BodyTypes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column(name = "body_id")
-    private Long bodyId;
+    private Integer bodyId;
 
     private String type;
 }

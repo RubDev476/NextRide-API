@@ -11,7 +11,7 @@ import lombok.Data;
 public class Fuels {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int fuelId;
+    private Integer fuelId;
 
     private String type;
 }

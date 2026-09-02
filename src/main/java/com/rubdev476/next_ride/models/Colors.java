@@ -11,7 +11,7 @@ import lombok.Data;
 public class Colors {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int colorId;
+    private Integer colorId;
 
     private String name;
 }

@@ -11,7 +11,7 @@ import lombok.Data;
 public class Transmissions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int transmissionId;
+    private Integer transmissionId;
 
     private String type;
 }

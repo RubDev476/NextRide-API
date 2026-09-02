@@ -11,7 +11,9 @@ public class Cars {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer carId;
 
+    @Column(name = "year", columnDefinition = "YEAR")
     private Integer year;
+
     private Integer doors;
     private Integer mileage;
 
@@ -24,26 +26,26 @@ public class Cars {
     private String model;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "transmission_id", referencedColumnName = "transmission_id")
+    @JoinColumn(name = "transmission_id", referencedColumnName = "transmissionId")
     private Transmissions transmissions;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "finish_id", referencedColumnName = "finish_id")
+    @JoinColumn(name = "finish_id", referencedColumnName = "finishId")
     private ColorFinishes colorFinishes;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "body_id", referencedColumnName = "body_id")
+    @JoinColumn(name = "body_id", referencedColumnName = "bodyId")
     private BodyTypes bodyTypes;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fuel_id", referencedColumnName = "fuel_id")
+    @JoinColumn(name = "fuel_id", referencedColumnName = "fuelId")
     private Fuels fuels;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "color_id", referencedColumnName = "color_id")
+    @JoinColumn(name = "color_id", referencedColumnName = "colorId")
     private Colors color;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "brand_id", referencedColumnName = "brand_id")
+    @JoinColumn(name = "brand_id", referencedColumnName = "brandId")
     private Brands brands;
 }
