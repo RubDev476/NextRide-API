@@ -1,7 +1,6 @@
 package com.rubdev476.next_ride.controllers;
 
 import com.rubdev476.next_ride.models.Brands;
-import com.rubdev476.next_ride.repositories.BrandsRepository;
 import com.rubdev476.next_ride.services.BrandsService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
