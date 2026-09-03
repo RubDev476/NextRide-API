@@ -24,6 +24,6 @@ public class ColorsServiceImpl implements ColorsService {
 
     @Override
     public List<Colors> getColorsInUse() {
-        return colorsRepository.findColorsInUse();
+        return colorsRepository.getColorsInUse();
     }
 }
