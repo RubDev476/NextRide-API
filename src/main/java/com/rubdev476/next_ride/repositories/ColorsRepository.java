@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface ColorsRepository extends JpaRepository<Colors, Integer> {
-    @Query("SELECT DISTINCT c FROM Cars cars JOIN cars.colors c")
+    @Query("SELECT DISTINCT c FROM Cars cars JOIN cars.colors c ORDER BY c.colorId")
     List<Colors> findColorsInUse();
 }

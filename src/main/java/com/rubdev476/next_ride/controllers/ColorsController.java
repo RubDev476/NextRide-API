@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/colors")
+@RequestMapping("/api/colors")
 public class ColorsController {
     private final ColorsService colorsService;
 
@@ -22,7 +22,7 @@ public class ColorsController {
         return colorsService.getAllColors();
     }
 
-    @GetMapping("/in-use2")
+    @GetMapping("/in-use")
     public List<Colors> getColorsInUse() {
         return colorsService.getColorsInUse();
     }
