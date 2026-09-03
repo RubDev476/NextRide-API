@@ -16,7 +16,7 @@ public class BrandsServiceImpl implements BrandsService {
     }
 
     @Override
-    public List<Brands> getBrands() {
+    public List<Brands> getAllBrands() {
         return brandsRepository.findAll();
     }
 
