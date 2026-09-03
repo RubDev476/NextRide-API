@@ -17,4 +17,8 @@ public class CarsServiceImpl implements CarsService {
     public List<Integer> getYearsInUse() {
         return this.carsRepository.getYearsInUse();
     }
+
+    public List<Integer> getDoorsInUse() {
+        return this.carsRepository.getDoorsInUse();
+    }
 }

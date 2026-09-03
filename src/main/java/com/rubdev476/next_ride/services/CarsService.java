@@ -4,4 +4,6 @@ import java.util.List;
 
 public interface CarsService {
     List<Integer> getYearsInUse();
+
+    List<Integer> getDoorsInUse();
 }

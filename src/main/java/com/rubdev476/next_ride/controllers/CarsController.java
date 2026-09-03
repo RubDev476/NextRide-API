@@ -20,4 +20,9 @@ public class CarsController {
     public List<Integer> getYearsInUse() {
         return carsService.getYearsInUse();
     }
+
+    @GetMapping("/doors")
+    public List<Integer> getDoorsInUse() {
+        return carsService.getDoorsInUse();
+    }
 }
