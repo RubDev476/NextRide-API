@@ -1,6 +1,6 @@
 package com.rubdev476.next_ride.services;
 
-import com.rubdev476.next_ride.models.Cars;
+import com.rubdev476.next_ride.dtos.CarDTO;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ public interface CarsService {
 
     List<Integer> getDoorsInUse();
 
-    List<Cars> getAllCars();
+    List<CarDTO> getAllCars();
 }

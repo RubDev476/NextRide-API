@@ -1,6 +1,6 @@
 package com.rubdev476.next_ride.controllers;
 
-import com.rubdev476.next_ride.models.Cars;
+import com.rubdev476.next_ride.dtos.CarDTO;
 import com.rubdev476.next_ride.services.CarsService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +18,8 @@ public class CarsController {
     }
 
     @GetMapping()
-    public List<Cars> getAllCars() {
-        return this.carsService.getAllCars();
+    public List<CarDTO> getCars() {
+        return carsService.getAllCars();
     }
 
     @GetMapping("/years")

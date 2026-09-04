@@ -19,7 +19,7 @@ public class TransmissionsServiceImpl implements TransmissionsService {
         return transmissionsRepository.findAll();
     }
 
-    public List<Transmissions> getTransmissionsInUse() {
+    public List<String> getTransmissionsInUse() {
         return transmissionsRepository.getTransmissionsInUse();
     }
 }

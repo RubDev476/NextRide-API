@@ -7,5 +7,5 @@ import java.util.List;
 public interface BrandsService {
     List<Brands> getAllBrands();
 
-    List<Brands> getBrandsInUse();
+    List<String> getBrandsInUse();
 }

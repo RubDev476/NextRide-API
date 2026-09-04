@@ -23,7 +23,7 @@ public class ColorsServiceImpl implements ColorsService {
     }
 
     @Override
-    public List<Colors> getColorsInUse() {
+    public List<String> getColorsInUse() {
         return colorsRepository.getColorsInUse();
     }
 }

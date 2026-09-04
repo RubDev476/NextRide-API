@@ -7,5 +7,5 @@ import java.util.List;
 public interface TransmissionsService {
     List<Transmissions> getAllTransmissions();
 
-    List<Transmissions> getTransmissionsInUse();
+    List<String> getTransmissionsInUse();
 }

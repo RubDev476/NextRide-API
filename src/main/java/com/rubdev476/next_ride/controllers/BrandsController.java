@@ -23,7 +23,7 @@ public class BrandsController {
     }
 
     @GetMapping("/in-use")
-    public List<Brands> getBrandsInUse() {
+    public List<String> getBrandsInUse() {
         return brandsService.getBrandsInUse();
     }
 }

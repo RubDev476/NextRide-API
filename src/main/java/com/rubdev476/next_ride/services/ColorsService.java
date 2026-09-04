@@ -7,5 +7,5 @@ import java.util.List;
 public interface ColorsService {
     List<Colors> getAllColors();
 
-    List<Colors> getColorsInUse();
+    List<String> getColorsInUse();
 }

@@ -21,7 +21,7 @@ public class BrandsServiceImpl implements BrandsService {
     }
 
     @Override
-    public List<Brands> getBrandsInUse() {
+    public List<String> getBrandsInUse() {
         return brandsRepository.getBrandsInUse();
     }
 }

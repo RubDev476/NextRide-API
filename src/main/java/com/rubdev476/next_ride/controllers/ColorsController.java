@@ -23,7 +23,7 @@ public class ColorsController {
     }
 
     @GetMapping("/in-use")
-    public List<Colors> getColorsInUse() {
+    public List<String> getColorsInUse() {
         return colorsService.getColorsInUse();
     }
 }

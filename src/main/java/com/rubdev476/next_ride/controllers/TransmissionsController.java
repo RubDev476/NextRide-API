@@ -23,7 +23,7 @@ public class TransmissionsController {
     }
 
     @GetMapping("/in-use")
-    public List<Transmissions> getTransmissionsInUse() {
+    public List<String> getTransmissionsInUse() {
         return transmissionsService.getTransmissionsInUse();
     }
 }

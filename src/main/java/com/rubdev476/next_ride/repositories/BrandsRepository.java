@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface BrandsRepository extends JpaRepository<Brands, Integer> {
-    @Query("SELECT DISTINCT c FROM Cars cars JOIN cars.brands c ORDER BY c.brandId")
-    List<Brands> getBrandsInUse();
+    @Query("SELECT DISTINCT b.name FROM Cars cars JOIN cars.brands b")
+    List<String> getBrandsInUse();
 }
