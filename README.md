@@ -14,6 +14,7 @@ https://github.com/RubDev476/RE-Cars
 
 - Java 25
 - Spring Boot
+- Swagger Doc 3.1
 - Mysql
 
 
@@ -106,9 +107,11 @@ Importar desde MySQL Workbench
 
 - Abre Workbench.
 - Selecciona tu base de datos.
-- Ve a Server → Data Import.
-- Elige tu archivo CSV y asigna la tabla destino.
-- Configura delimitadores y ejecuta la importación.
+- Ve a Tables y elige la tabla (Ejemplo: **body_types**).
+- Click derecho sobre la tabla seleccionada → Table Data Import Wizard
+- Elige el archivo CSV correspondiente (Ejemplo: **body_types.csv**) y asigna la tabla destino.
+
+Repite los pasos anteriores para cada tabla y verifica en tu base datos con consultas **"select"** que los datos esten cargados.
 
 ### 7. Ejecutar localmente
 
@@ -135,6 +138,7 @@ Para arrancar la aplicación nuevamente con los datos ya cargados:
 - Abra el archivo principal con la clase `@SpringBootApplication` (ejemplo: `NextRideApplication.java`).  
 - Haga clic en el botón **Run ▶️** en la barra superior de IntelliJ.  
 - El servidor se iniciará en: http://localhost:8080/
+- Documentacion de las endpoint en Swagger: http://localhost:8080/swagger-ui.html
 
 De esta forma el proyecto estara listo para su uso local cada vez que lo ejecute de forma estable y sin reiniciar datos ni tablas.
 
