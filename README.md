@@ -76,7 +76,7 @@ server:
   port: 8080
 ```
 
-### 4. Ejecución local y creacion de tablas (solo la primera vez)
+### 5. Ejecución local y creacion de tablas (solo la primera vez)
 Una vez hecho los pasos anteriores, la primera vez que se ejecute el proyecto, las tablas en la base de datos se crearan automaticamente gracias a la configuracion **"ddl-auto: create"** en el archivo **.yaml**.
 
 ***Las tablas se crean sin datos, en el siguiente paso los datos se agregan manualmente.***
@@ -100,7 +100,7 @@ Para arrancar la aplicación:
 
 - Una vez que las tablas se hayan creado con exito, haga click en el boton Stop ⏹️ en la barra superior de IntelliJ para detener la aplicación.
 
-### 5. Cargar archivos ".csv" a la base de datos
+### 6. Cargar archivos ".csv" a la base de datos
 
 Importar desde MySQL Workbench
 
@@ -110,7 +110,7 @@ Importar desde MySQL Workbench
 - Elige tu archivo CSV y asigna la tabla destino.
 - Configura delimitadores y ejecuta la importación.
 
-### 6. Ejecutar localmente
+### 7. Ejecutar localmente
 
 Antes de ejecutar el proyecto de forma estable, solo hay que cambiar el valor de "ddl-auto" por "validate", este valor solo valida que las entidades coincidan con las tablas existentes. No crea ni modifica nada. Con el valor "create" elimina el esquema existente y lo vuelve a crear desde cero cada vez que arranca y tendria que repetir el proceso de cargar archivos ".csv" cada vez que reinicia el proyecto.
 
