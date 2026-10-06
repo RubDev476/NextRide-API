@@ -22,13 +22,15 @@ https://github.com/RubDev476/RE-Cars
 - 📄 **Solo metodos GET**: Api solo para mostrar informacion al cliente, por lo que no se puede hacer metodos para modificar ni borrar datos. 
 - 📄 **Datos listos para su uso**: Archivos CSV para añadir directamente a la base de datos (Este proyecto usa Mysql, pero puede usar los mismos archivos para cualquier otra base de datos SQL). Estos archivos pueden ser modificados para añadir tantos datos como desee.
 - 📄 **Multiples filtros**: Cada característica tiene su propio metodo GET (doors, color, brand etc.), lo cual facilita la flexibilidad para filtros avanzados personalizados por el cliente.
+- 📄 **Seguridad**: Rutas protegidas por una **Api Key**.
+
 ## 🚀 Instalación y uso local
 
 ### 1. Clonar repositorio
 Puedes clonar el proyecto desde GitHub directamente en IntelliJ:
 
 - Abre IntelliJ IDEA  
-- Ve a **File → New → Project from Version Control**  
+- Ve a `File` → `New` → `Project from Version Control`
 - Pega la URL del repositorio:  
 
 ```bash
@@ -53,11 +55,11 @@ En tu servidor MySQL (o cualquier otro servidor SQL), crea la base de datos:
 CREATE DATABASE nameDB;
 ```
 
-### 4. Configuracion "application.yaml"
+### 4. Configuracion `application.yaml`
 
-Antes de ejecutar el proyecto, debe configurar el archivo "application.yaml" con los datos de su servidor sql, nombre de la base de datos y cambiar el valor de "ddl-auto" por "create".
+Antes de ejecutar el proyecto, debe configurar el archivo `application.yaml` con los datos de su servidor sql, nombre de la base de datos y cambiar el valor de `ddl-auto` por `create`.
 
-El archivo de configuracion **.yaml** se encuentra en "src/main/resources/application.yaml".
+El archivo de configuracion `application.yaml` se encuentra en `"src/main/resources/application.yaml"`.
 
 Una vez modificado el archivo con sus valores de configuracion, tendra un archivo similar tal y como se muestra abajo:
 
@@ -78,7 +80,7 @@ server:
 ```
 
 ### 5. Ejecución local y creacion de tablas (solo la primera vez)
-Una vez hecho los pasos anteriores, la primera vez que se ejecute el proyecto, las tablas en la base de datos se crearan automaticamente gracias a la configuracion **"ddl-auto: create"** en el archivo **.yaml**.
+Una vez hecho los pasos anteriores, la primera vez que se ejecute el proyecto, las tablas en la base de datos se crearan automaticamente gracias a la configuracion `ddl-auto: create` en el archivo `application.yaml`.
 
 ***Las tablas se crean sin datos, en el siguiente paso los datos se agregan manualmente.***
 
@@ -87,7 +89,7 @@ Para arrancar la aplicación:
 - Abra el archivo principal con la clase `@SpringBootApplication` (ejemplo: `NextRideApplication.java`).  
 - Haga clic en el botón **Run ▶️** en la barra superior de IntelliJ.  
 - El servidor se iniciará en: http://localhost:8080/
-- Compruebe que las tablas se hayan creado correctamente en la base de datos. Las tablas deben ser las mismas que estan en la carpeta **"data csv"**, cada archivo representa una tabla que a su vez el nombre del archivo debe ser el mismo con el nombre de la tabla:
+- Compruebe que las tablas se hayan creado correctamente en la base de datos. Las tablas deben ser las mismas que estan en la carpeta `data csv`, cada archivo representa una tabla que a su vez el nombre del archivo debe ser el mismo con el nombre de la tabla:
 
 | CSV Nombre | Nombre de la tabla |
 |---------------|----------------|
@@ -101,21 +103,21 @@ Para arrancar la aplicación:
 
 - Una vez que las tablas se hayan creado con exito, haga click en el boton Stop ⏹️ en la barra superior de IntelliJ para detener la aplicación.
 
-### 6. Cargar archivos ".csv" a la base de datos
+### 6. Cargar archivos `.csv` a la base de datos
 
 Importar desde MySQL Workbench
 
 - Abre Workbench.
 - Selecciona tu base de datos.
-- Ve a Tables y elige la tabla (Ejemplo: **body_types**).
+- Ve a Tables y elige la tabla (Ejemplo: `body_types`).
 - Click derecho sobre la tabla seleccionada → Table Data Import Wizard
-- Elige el archivo CSV correspondiente (Ejemplo: **body_types.csv**) y asigna la tabla destino.
+- Elige el archivo CSV correspondiente (Ejemplo: `body_types.csv`) y asigna la tabla destino.
 
 Repite los pasos anteriores para cada tabla y verifica en tu base datos con consultas **"select"** que los datos esten cargados.
 
 ### 7. Ejecutar localmente
 
-Antes de ejecutar el proyecto de forma estable, solo hay que cambiar el valor de "ddl-auto" por "validate", este valor solo valida que las entidades coincidan con las tablas existentes. No crea ni modifica nada. Con el valor "create" elimina el esquema existente y lo vuelve a crear desde cero cada vez que arranca y tendria que repetir el proceso de cargar archivos ".csv" cada vez que reinicia el proyecto.
+Antes de ejecutar el proyecto de forma estable, solo hay que cambiar el valor de `ddl-auto: create` por `ddl-auto: validate`, este valor solo valida que las entidades coincidan con las tablas existentes. No crea ni modifica nada. Con el valor "create" elimina el esquema existente y lo vuelve a crear desde cero cada vez que arranca y tendria que repetir el proceso de cargar archivos `.csv` cada vez que reinicia el proyecto.
 
 ```yaml
 spring:
@@ -138,10 +140,34 @@ Para arrancar la aplicación nuevamente con los datos ya cargados:
 - Abra el archivo principal con la clase `@SpringBootApplication` (ejemplo: `NextRideApplication.java`).  
 - Haga clic en el botón **Run ▶️** en la barra superior de IntelliJ.  
 - El servidor se iniciará en: http://localhost:8080/
-- Documentacion de las endpoint en Swagger: http://localhost:8080/swagger-ui.html
+- Documentacion de las endpoint en Swagger: http://localhost:8080/swagger-ui/index.html
 
 De esta forma el proyecto estara listo para su uso local cada vez que lo ejecute de forma estable y sin reiniciar datos ni tablas.
 
-En caso de querer modificar los archivos ".csv" para añadir o editar los datos, tiene que repetir el proceso desde el punto numero 4, ya que los datos solo se pueden actualizar manualmente cada vez que cargue los archivos a la base de datos.
+En caso de querer modificar los archivos `.csv` para añadir o editar los datos, tiene que repetir el proceso desde el punto numero 4, ya que los datos solo se pueden actualizar manualmente cada vez que cargue los archivos a la base de datos.
+
+---
+
+## 🚀 Prueba tus endpoints (Swagger UI)
+- La documentación interactiva de la API está disponible en: http://localhost:8080/swagger-ui/index.html
+
+### 🔑 1. Uso de la API Key
+- La API requiere autenticación mediante **API Key** en los endpoints bajo `/api`.
+- La clave se define en tu archivo `application.yaml`:
+
+```yaml
+api:
+  key: supersecret123
+```
+
+*Puedes cambiar "supersecret123" por cualquier valor propio para tu proyecto.
+
+### 🛡️ 2. Autenticar en Swagger
+
+- Abre la interfaz de Swagger UI en tu navegador: http://localhost:8080/swagger-ui/index.html 
+- Haz clic en el botón Authorize (arriba a la derecha).
+- En el campo correspondiente, pega tu API Key.
+- Presiona Authorize y luego Close.
+- Ahora todos los endpoints protegidos funcionarán correctamente desde Swagger.
 
 ---
