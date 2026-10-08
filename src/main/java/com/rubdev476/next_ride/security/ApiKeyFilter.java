@@ -1,5 +1,6 @@
 package com.rubdev476.next_ride.security;
 
+import com.rubdev476.next_ride.util.CustomResponse;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.Collections;
 
 @Component
 @Order(1)
@@ -27,17 +29,15 @@ public class ApiKeyFilter extends OncePerRequestFilter {
         String path = request.getRequestURI();
 
         if (path.startsWith("/api") && (header == null || !header.equals(apiKey))) {
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-
-            String jsonResponse = String.format(
-                    "{\"error\":true,\"message\":\"Invalid API Key\",\"path\":\"%s\",\"status\":%d}",
+            CustomResponse.writeResponse(
+                    response,
+                    true,
+                    "Invalid API Key",
                     path,
-                    HttpServletResponse.SC_UNAUTHORIZED
+                    HttpServletResponse.SC_UNAUTHORIZED,
+                    Collections.emptyList()
             );
 
-            response.getWriter().write(jsonResponse);
             return;
         }
 

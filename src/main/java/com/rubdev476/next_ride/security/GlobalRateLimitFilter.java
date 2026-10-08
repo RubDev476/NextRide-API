@@ -1,5 +1,6 @@
 package com.rubdev476.next_ride.security;
 
+import com.rubdev476.next_ride.util.CustomResponse;
 import io.github.bucket4j.Bucket;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -7,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -25,7 +27,6 @@ public class GlobalRateLimitFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
             throws IOException, ServletException {
-
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
@@ -40,9 +41,14 @@ public class GlobalRateLimitFilter implements Filter {
         if (bucket.tryConsume(1)) {
             filterChain.doFilter(request, response);
         } else {
-            httpResponse.setStatus(429);
-            httpResponse.setContentType("application/json");
-            httpResponse.getWriter().write("{\"error\":true,\"message\":\"Rate limit exceeded\"}");
+            CustomResponse.writeResponse(
+                    httpResponse,
+                    true,
+                    "Rate limit exceeded",
+                    httpRequest.getRequestURI(),
+                    429, //Too Many Requests.
+                    Collections.emptyList()
+            );
         }
     }
 }
