@@ -16,13 +16,16 @@ https://github.com/RubDev476/RE-Cars
 - Spring Boot
 - Swagger Doc 3.1
 - Mysql
+- Bucket4j
 
 
 ## ✨ Características principales
 - 📄 **Solo metodos GET**: Api solo para mostrar informacion al cliente, por lo que no se puede hacer metodos para modificar ni borrar datos. 
 - 📄 **Datos listos para su uso**: Archivos CSV para añadir directamente a la base de datos (Este proyecto usa Mysql, pero puede usar los mismos archivos para cualquier otra base de datos SQL). Estos archivos pueden ser modificados para añadir tantos datos como desee.
 - 📄 **Multiples filtros**: Cada característica tiene su propio metodo GET (doors, color, brand etc.), lo cual facilita la flexibilidad para filtros avanzados personalizados por el cliente.
-- 📄 **Seguridad**: Rutas protegidas por una **Api Key**.
+- 📄 **Seguridad**: 
+  - Rutas protegidas por una **Api Key**.
+  - Rate Limits con **Bucket4j**.
 
 ## 🚀 Instalación y uso local
 
